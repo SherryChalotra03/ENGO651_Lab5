@@ -89,7 +89,8 @@ document.getElementById('startBtn').addEventListener('click', () => {
         onFailure: (err) => {
             document.getElementById('status').innerText = "Connection failed: " + err.errorMessage;
         },
-        useSSL: true // Required for test.mosquitto.org WebSockets
+        //useSSL: true // Required for test.mosquitto.org WebSockets
+        useSSL: false // Set to false for broker.hivemq.com
     });
 });
 
