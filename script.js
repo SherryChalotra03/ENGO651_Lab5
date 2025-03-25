@@ -99,7 +99,8 @@ document.getElementById('startBtn').addEventListener('click', () => {
         onFailure: (err) => {
             document.getElementById('status').innerText = "Connection failed: " + err.errorMessage;
         },
-        useSSL: false // Set to false for broker.hivemq.com
+        useSSL: true 
+        // Set to true for broker.hivemq.com on port 8884
     });
  });
 
