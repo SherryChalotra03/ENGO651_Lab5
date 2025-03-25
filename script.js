@@ -94,7 +94,7 @@ document.getElementById('startBtn').addEventListener('click', () => {
         document.getElementById('status').innerText = "Message received and map updated";
     };
 
-    cclient.connect({
+    client.connect({
         onSuccess: onConnect,
         onFailure: (err) => {
             document.getElementById('status').innerText = "Connection failed: " + err.errorMessage;
