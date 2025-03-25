@@ -60,6 +60,24 @@ function getGeoJSON(callback) {
     );
 }
 
+// Callback for successful connection
+function onConnect() {
+    document.getElementById('status').innerText = "Connected to " + client.host;
+    client.subscribe(TOPIC, (err) => {
+        if (err) {
+            document.getElementById('status').innerText = "Subscription failed: " + err;
+        } else {
+            document.getElementById('status').innerText += "\nSubscribed to " + TOPIC;
+        }
+    });
+    document.getElementById('startBtn').disabled = true;
+    document.getElementById('endBtn').disabled = false;
+    document.getElementById('shareBtn').disabled = false;
+    document.getElementById('host').disabled = true;
+    document.getElementById('port').disabled = true;
+    if (!map) initMap();
+}
+
 // MQTT Connection
 document.getElementById('startBtn').addEventListener('click', () => {
     const host = document.getElementById('host').value;
@@ -73,26 +91,18 @@ document.getElementById('startBtn').addEventListener('click', () => {
     client.onMessageArrived = (message) => {
         const geojson = JSON.parse(message.payloadString);
         updateMap(geojson);
+        document.getElementById('status').innerText = "Message received and map updated";
     };
 
-    client.connect({
-        onSuccess: () => {
-            document.getElementById('status').innerText = "Connected to " + host;
-            client.subscribe(TOPIC);
-            document.getElementById('startBtn').disabled = true;
-            document.getElementById('endBtn').disabled = false;
-            document.getElementById('shareBtn').disabled = false;
-            document.getElementById('host').disabled = true;
-            document.getElementById('port').disabled = true;
-            if (!map) initMap();
-        },
+    cclient.connect({
+        onSuccess: onConnect,
         onFailure: (err) => {
             document.getElementById('status').innerText = "Connection failed: " + err.errorMessage;
         },
-        //useSSL: true // Required for test.mosquitto.org WebSockets
         useSSL: false // Set to false for broker.hivemq.com
     });
-});
+ });
+
 
 // End Connection
 document.getElementById('endBtn').addEventListener('click', () => {
