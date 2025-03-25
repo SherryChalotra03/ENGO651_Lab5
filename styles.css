@@ -1,0 +1,159 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    background: #ecf0f1;
+    border-radius: 8px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 200px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#startBtn {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+#startBtn:hover:not(:disabled) {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+#endBtn {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+#endBtn:hover:not(:disabled) {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+#shareBtn {
+    background-color: #3498db;
+    color: #fff;
+}
+
+#shareBtn:hover:not(:disabled) {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.status {
+    margin: 15px 0;
+    padding: 10px;
+    background: #d5f5e3;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        max-width: 100%;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
