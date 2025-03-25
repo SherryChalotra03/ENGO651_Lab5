@@ -1,5 +1,5 @@
-// Replace with your name (e.g., "john_doe")
-const YOUR_NAME = "Sherry Chalotra";
+// Replace with your name (e.g., "sherry_chalotra")
+const YOUR_NAME = "sherry_chalotra";
 const COURSE_CODE = "ENGO651";
 const TOPIC = `${COURSE_CODE}/${YOUR_NAME}/my_temperature`;
 
@@ -8,7 +8,7 @@ let map = null;
 let marker = null;
 
 // Initialize Leaflet map
-function initMap(lat = 51.505, lng = -0.09) { //default setup to London
+function initMap(lat = 51.505, lng = -0.09) {
     map = L.map('map').setView([lat, lng], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
@@ -99,11 +99,11 @@ document.getElementById('startBtn').addEventListener('click', () => {
         onFailure: (err) => {
             document.getElementById('status').innerText = "Connection failed: " + err.errorMessage;
         },
-        useSSL: true 
-        // Set to true for broker.hivemq.com on port 8884
+        useSSL: true, // For port 8884
+        userName: "", // Try empty username for anonymous access
+        password: ""  // Try empty password for anonymous access
     });
- });
-
+});
 
 // End Connection
 document.getElementById('endBtn').addEventListener('click', () => {
