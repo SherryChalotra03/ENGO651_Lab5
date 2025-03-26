@@ -66,6 +66,7 @@ To test publishing and subscribing, use MQTTX to connect to the same broker and 
 ### Publish from the App:
 - In the app, click "Start" to connect, then click "Share My Status".
 - Check MQTTX— to see a GeoJSON message like:
+  
 ![image](https://github.com/user-attachments/assets/989dc38a-0f03-4712-9cfd-4f2a2f2c21c7)
 - Click the "Publish" button.
 - Check the app—the map should update with a green marker at the coordinates, and the status should show "Message received and map updated".
